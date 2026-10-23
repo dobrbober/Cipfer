@@ -3,5 +3,5 @@
 #include <iostream>
 #include "CreateAndDeleteList.h"
 
-void Encrypting(Cipfer* List, Files& FileIO, fstream& FileRAW);
-void EncryptingR(Cipfer* List, Files& FileIO, fstream& FileRAW);
+void Encrypting (Cipfer* List, string& Process, int& Shift);
+void EncryptingR(Cipfer* List, string& Process, int& Shift);

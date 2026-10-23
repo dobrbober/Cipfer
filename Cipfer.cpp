@@ -64,27 +64,42 @@ int main()
 
 	Cipfer* List = nullptr;
 
-	CreateList(List, File, FileReadAndWrite); //Создание списка
-
-	InputMessage(List, File, FileReadAndWrite); // Ввод и чтение файла
+	string  sInput  = ""    ;
+	string& slInput = sInput;
 	
+	string sMessage  = "";
+	string slMessage = sMessage;
+
+	int  iShift  = 0     ;
+	int& ilShift = iShift;
+
+	int iError = 0;
+
+	CreateList(List); //Создание списка
+
+	slInput = InputMessage(List, File, FileReadAndWrite); // Ввод и чтение файла
+
+	ilShift = InputData(File, FileReadAndWrite);
+
 	switch (Question()) //Вопрос шифровка или дешифровка
 	{
 	case(0): 
 		
-		Encrypting (List, File, FileReadAndWrite); 
+		Encrypting (List, slInput, ilShift); 
 		break;
 	case(1): 
 		
-		EncryptingR(List, File, FileReadAndWrite);
+		EncryptingR(List, slInput, ilShift);
 		break;
 	default:
 		cout << "Неверное возращённое значение от вопроса!";
-		system("pause");
+		iError = -1;
 		break;
 	}; 
+	 
+	if (iError != 0) return -1;
 
-	Output(List, File, FileReadAndWrite); //Вывод и запись в файл
+	Output(File, FileReadAndWrite, slMessage); //Вывод и запись в файл
 	
 	DeleteList(List); //Удаление списка
 }

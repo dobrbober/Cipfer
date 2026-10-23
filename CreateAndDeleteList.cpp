@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void CreateList(Cipfer*& List, Files& FileIO, fstream& FileRAW)// создание, заполнение списка и начало работы
+void CreateList(Cipfer*& List)// создание, заполнение списка и начало работы
 {
 	List = new Cipfer;
 

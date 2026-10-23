@@ -10,7 +10,7 @@ int Question()
 
 	while (bFlag)
 	{
-		cout << "\t\t\t\tEncryption/Шифровка - 'E'\n\t\t\t\tDecoding/Дешифровка - 'D'\n\t\t(Убедитесь, что вы ввели верное сообщение в файл 'Input.txt')\n\t(При дешифровке убидитесь что файл 'Data.txt' заполнен верным числом)\n";
+		cout << "\t\t\t\tEncryption/Шифровка - 'E'\n\t\t\t\tDecoding/Дешифровка - 'D'\n\t\t(Убедитесь, что вы ввели верное сообщение в файл 'Input.txt')\n\t(При дешифровке убидитесь что файл 'Data.txt' заполнен числом от 1 до 255)\n";
 		char chek = _getch();
 
 		if (chek == 'd' || chek == 'D' || chek == 'В' || chek == 'в')

@@ -19,6 +19,6 @@ struct Cipfer
 	Cipfer* Before = nullptr;
 };
 
-void CreateList(Cipfer*& List, Files& FileIO, fstream& FileRAW);
+void CreateList(Cipfer*& List);
 
 void DeleteList(Cipfer*& List);

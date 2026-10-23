@@ -5,4 +5,4 @@
 
 using namespace std;
 
-void Output(Cipfer*& List, Files& FileIO, fstream& FileRAW);
+void Output(Files& FileIO, fstream& FileRAW, string& Message);
