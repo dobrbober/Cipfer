@@ -7,6 +7,6 @@
 
 using namespace std;
 
-string InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW);
+void InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW, string& Input);
 
-int InputData(Files& FileIO, fstream& FileRAW);
+void InputData(Files& FileIO, fstream& FileRAW, int& Shift);

@@ -77,9 +77,9 @@ int main()
 
 	CreateList(List); //Создание списка
 
-	slInput = InputMessage(List, File, FileReadAndWrite); // Ввод и чтение файла
+	InputMessage(List, File, FileReadAndWrite, slInput); // Ввод и чтение файла
 
-	ilShift = InputData(File, FileReadAndWrite);
+	InputData(File, FileReadAndWrite, ilShift);
 
 	if (ilShift == -1)
 	{

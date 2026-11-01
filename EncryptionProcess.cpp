@@ -9,7 +9,7 @@ void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Об
 	char* Treatment = new char[Process.length()+1]();// не шифрованное сообщение
 	char* EncryptedMessage = new char[Process.length()+1]();// шифрованное сообщение
 	
-	for (int i = 0; i < Process.length()+1; ++i)//этот цикл перобразовывает строку в динамический массив char
+	for (int i = 0; i < Process.length()+1; ++i)//цикл перобразовывает строку в динамический массив char
 	{
 		Treatment[i] = Process[i];
 	}
@@ -25,7 +25,7 @@ void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Об
 			while (bFlag)
 			{
 
-				for (int j = 0; j < Shift; ++j) //отступ
+				for (int j = 0; j < Shift; ++j) //сдвиг для шифровки
 				{
 					List = List->Next;
 					if (List->Next == nullptr) 
@@ -50,13 +50,13 @@ void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Об
 
 	Message = EncryptedMessage;
 
-	//удаление массивов
+	//удаление динамических массивов
 	delete[] Treatment;
 	delete[] EncryptedMessage;
 }
 
 
-void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//дешифровка
+void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//обработка сообщения дешифровка
 {
 	bool bFlag = true;
 	
@@ -65,12 +65,12 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//де
 	char* Treatment = new char[Process.length() + 1]();// не шифрованное сообщение
 	char* EncryptedMessage = new char[Process.length() + 1]();// шифрованное сообщение
 
-	for (int i = 0; i < Process.length() + 1; ++i)//этот цикл перобразовывает строку в динамический массив char
+	for (int i = 0; i < Process.length() + 1; ++i)//цикл перобразовывает строку в динамический массив char
 	{
 		Treatment[i] = Process[i];
 	}
 
-	while (bFlag)//шифровка
+	while (bFlag)//дешифровка
 	{
 		if (iCheckLenghtAndPosition == Process.length()) bFlag = false;
 
@@ -81,7 +81,7 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//де
 			while (bFlag)
 			{
 
-				for (int j = 0; j < Shift; ++j) //отступ
+				for (int j = 0; j < Shift; ++j) //сдвиг для дешифровки
 				{
 					List = List->Before;
 					if (List->Before == nullptr) 
@@ -107,7 +107,7 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//де
 
 	Message = EncryptedMessage;
 
-	 //удаление массивов
+	 //удаление динамических массивов
 	delete[] Treatment;
 	delete[] EncryptedMessage;
 }
