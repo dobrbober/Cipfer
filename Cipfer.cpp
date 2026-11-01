@@ -67,8 +67,8 @@ int main()
 	string  sInput  = ""    ;
 	string& slInput = sInput;
 	
-	string sMessage  = "";
-	string slMessage = sMessage;
+	string  sMessage  = "";
+	string& slMessage = sMessage;
 
 	int  iShift  = -1    ;
 	int& ilShift = iShift;

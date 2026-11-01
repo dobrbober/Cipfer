@@ -7,7 +7,6 @@ void Output(Files& FileIO, fstream& FileRAW, string& Message)
 	string sLimiter = "";
 
 	FileRAW.open(FileIO.FileInput, ios_base::in);
-
 	if(FileRAW.is_open())
 	{
 		cout << "File open!";
@@ -22,22 +21,25 @@ void Output(Files& FileIO, fstream& FileRAW, string& Message)
 	}
 	FileRAW.close();
 
-	FileRAW.open(FileIO.FileOutput, ios_base::in);
-	if (FileRAW.is_open())
+	for(int i = 0; i < sLimiter.length()+1; ++i)
 	{
-		cout << "File open!";
-		system("cls");
-
-		for(int i = 0; i < sLimiter.length()+1; ++i)
-		{
-			cout << Message[i];
-		}
+		cout << Message[i];
 	}
+	cout << endl;
+	system("pause");
+
+
+	FileRAW.open(FileIO.FileOutput, ios_base::out);
+	if (FileRAW.is_open())
+		FileRAW << Message;
 	else
 	{
 		cout << "File close!";
 		FileRAW.close();
 		system("cls");
+		
 	}
+	cout << "File close!";
 	FileRAW.close();
+	system("cls");
 }

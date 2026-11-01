@@ -7,7 +7,6 @@ string InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW)
 	string Input = "";
 
 	FileRAW.open(FileIO.FileInput, ios_base::in);
-
 	if (FileRAW.is_open())
 	{
 		cout << "File open!";
@@ -27,12 +26,6 @@ string InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW)
 			system("cls");
 			system("cls");
 		}
-		else
-		{
-			FileRAW.open(FileIO.FileInput, ios_base::out);
-			FileRAW << Input << endl;
-			FileRAW.close();
-		}
 	}
 	else
 	{
@@ -40,6 +33,11 @@ string InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW)
 		FileRAW.close();
 		system("cls");
 	}
+
+	cout << "File close!";
+	FileRAW.close();
+	system("cls");
+
 	return Input;
 }
 
@@ -52,7 +50,7 @@ int InputData(Files& FileIO, fstream& FileRAW)
 	FileRAW.open(FileIO.FileData, ios_base::in);
 	if (FileRAW.is_open()) //проверка на наличие числа для сдвига в файле Data.txt
 	{
-		cout << "File open" << endl;
+		cout << "FileData open!(in)" << endl;
 		system("cls");
 
 		string sTempShift = "";
@@ -69,27 +67,31 @@ int InputData(Files& FileIO, fstream& FileRAW)
 			FileRAW.open(FileIO.FileData, ios_base::out);
 			if (FileRAW.is_open()) 
 			{
-				cout << "File open!" << endl;
+				cout << "FileData open!(out)" << endl;
 				system("cls");
 				FileRAW << iShift << endl;
 			}
 			else
 			{
-				cout << "File close" << endl;
+				cout << "FileData close!(out)" << endl;
 				system("cls");
 				FileRAW.close();
 			}
 			FileRAW.close();
-			cout << "File close" << endl;
+			cout << "FileData close!(out)" << endl;
 			system("cls");
 		}
 	}
 	else
 	{
-		cout << "File close" << endl;
+		cout << "FileData close!(in)" << endl;
 		system("cls");
 		FileRAW.close();
 	}
+
+	cout << "FileData close!" << endl;
+	system("cls");
+	FileRAW.close();
 
 	return iShift;
 }

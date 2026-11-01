@@ -4,7 +4,7 @@ void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Об
 {
 	bool bFlag = true;
 
-	int i = 0;
+	int iCheckLenghtAndPosition = 0;
 
 	char* Treatment = new char[Process.length()+1]();// не шифрованное сообщение
 	char* EncryptedMessage = new char[Process.length()+1]();// шифрованное сообщение
@@ -16,11 +16,11 @@ void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Об
 
 	while (bFlag)//шифровка
 	{
-		if (i == Process.length()) break;
+		if (iCheckLenghtAndPosition == Process.length()) break;
 
 		if (List->Next == nullptr) while (List->Before != nullptr) List = List->Before;
 
-		if (Treatment[i] == List->Data)
+		if (Treatment[iCheckLenghtAndPosition] == List->Data)
 		{
 			while (bFlag)
 			{
@@ -35,9 +35,9 @@ void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Об
 						List = List->Next;
 				}
 					
-				EncryptedMessage[i] = List->Data;
+				EncryptedMessage[iCheckLenghtAndPosition] = List->Data;
 				bFlag = false;
-				++i;
+				++iCheckLenghtAndPosition;
 			}
 			List = List->Next;
 			bFlag = true;
@@ -60,7 +60,7 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//де
 {
 	bool bFlag = true;
 	
-	int i = 0;
+	int iCheckLenghtAndPosition = 0;
 
 	char* Treatment = new char[Process.length() + 1]();// не шифрованное сообщение
 	char* EncryptedMessage = new char[Process.length() + 1]();// шифрованное сообщение
@@ -72,11 +72,11 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//де
 
 	while (bFlag)//шифровка
 	{
-		if (i == Process.length()) bFlag = false;
+		if (iCheckLenghtAndPosition == Process.length()) bFlag = false;
 
 		if (List->Next == nullptr) while (List->Before != nullptr) List = List->Before;
 
-		if (Treatment[i] == List->Data)
+		if (Treatment[iCheckLenghtAndPosition] == List->Data)
 		{
 			while (bFlag)
 			{
@@ -92,9 +92,9 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//де
 							List = List->Next;
 				}
 					
-				EncryptedMessage[i] = List->Data;
+				EncryptedMessage[iCheckLenghtAndPosition] = List->Data;
 				bFlag = false;
-				++i;
+				++iCheckLenghtAndPosition;
 			}
 			List = List->Next;
 			bFlag = true;
