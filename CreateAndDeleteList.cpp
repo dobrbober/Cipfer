@@ -22,7 +22,8 @@ void CreateList(Cipfer*& List)// создание, заполнение списка и начало работы
 	}
 	while (List->Before != nullptr) 
 		List = List->Before;
-
+	
+	//Код для проверки двусвязного списка
 	//int i = 0;
 
 	//while (List->Next != nullptr) 

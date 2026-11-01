@@ -4,4 +4,5 @@
 #include "CreateAndDeleteList.h"
 
 int Question();
-void QuestionShift(Files& FileIO, fstream& FileRAW);
+int QuestionDataChange();
+int QuestionDataInstall();

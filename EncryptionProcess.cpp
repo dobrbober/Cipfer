@@ -1,6 +1,6 @@
 #include "EncryptionProcess.h"
 
-void Encrypting(Cipfer* List, string& Process, int& Shift)// Обработка собщения и шифровка
+void Encrypting(Cipfer* List, string& Process, int& Shift, string& Message)// Обработка собщения и шифровка
 {
 	bool bFlag = true;
 
@@ -48,7 +48,7 @@ void Encrypting(Cipfer* List, string& Process, int& Shift)// Обработка собщения 
 		}
 	}
 
-	string sEncryptedMessage = EncryptedMessage;
+	Message = EncryptedMessage;
 
 	//удаление массивов
 	delete[] Treatment;
@@ -56,7 +56,7 @@ void Encrypting(Cipfer* List, string& Process, int& Shift)// Обработка собщения 
 }
 
 
-void EncryptingR(Cipfer* List, string& Process, int& Shift)//дешифровка
+void EncryptingR(Cipfer* List, string& Process, int& Shift, string& Message)//дешифровка
 {
 	bool bFlag = true;
 	
@@ -105,7 +105,7 @@ void EncryptingR(Cipfer* List, string& Process, int& Shift)//дешифровка
 		}
 	}
 
-	string sEncryptedMessage = EncryptedMessage;
+	Message = EncryptedMessage;
 
 	 //удаление массивов
 	delete[] Treatment;

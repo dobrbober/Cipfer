@@ -29,3 +29,45 @@ int Question()
 
 	return iSwitcher;
 }
+
+int QuestionDataChange()
+{
+	int iShift = -1;
+	
+	while(true)
+	{
+		cout << "Хотите изменить число для сдвига?\n\t\t\t Да(Y)\t\t Нет(N)";
+		char cCheck = _getch();
+		system("cls");
+
+		if (cCheck == 'Y' || cCheck == 'y' || cCheck == 'Н' || cCheck == 'н')
+		{
+			iShift = QuestionDataInstall();
+			return iShift;
+		}
+		if (cCheck == 'N' || cCheck == 'n' || cCheck == 'Т' || cCheck == 'т')
+		{
+			return iShift;
+		}
+	}
+}
+
+int QuestionDataInstall()
+{
+	int iShift = -1;
+	
+	while (true)
+	{
+		cout << "Установите число для сдвига от 1 до 255: ";
+		
+		cin >> iShift;
+
+		system("cls"); system("cls");
+
+		if(iShift > 0 && iShift <= 255)
+		{
+			return iShift;
+		}
+	}
+}
+

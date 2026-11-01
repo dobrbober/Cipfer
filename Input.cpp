@@ -32,7 +32,6 @@ string InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW)
 			FileRAW.open(FileIO.FileInput, ios_base::out);
 			FileRAW << Input << endl;
 			FileRAW.close();
-				
 		}
 	}
 	else
@@ -46,7 +45,7 @@ string InputMessage(Cipfer* List, Files& FileIO, fstream& FileRAW)
 
 int InputData(Files& FileIO, fstream& FileRAW)
 {
-	int iShift = 0;
+	int iShift = -1;
 
 	bool bFlag = true;
 
@@ -64,29 +63,25 @@ int InputData(Files& FileIO, fstream& FileRAW)
 			iShift = stoi(sTempShift);
 		else
 		{
-			cout << "¬ведите сдвиг (число) символов дл€ шифровки (более 0 и не более 255): ";
-			cin >> iShift;
-			system("cls");
-			system("cls");
-
-			while (iShift > 255 || iShift <= 0)//проверка на верность числа дл€ сдвига
-			{
-				cout << "¬ведите сдвиг (число) более 0 и не более 255 символов: ";
-				cin >> iShift;
-				system("cls");
-
-			}
+			iShift = QuestionDataInstall();
 			FileRAW.close();
 
 			FileRAW.open(FileIO.FileData, ios_base::out);
-			if (FileRAW.is_open())
+			if (FileRAW.is_open()) 
+			{
+				cout << "File open!" << endl;
+				system("cls");
 				FileRAW << iShift << endl;
+			}
 			else
 			{
 				cout << "File close" << endl;
 				system("cls");
 				FileRAW.close();
 			}
+			FileRAW.close();
+			cout << "File close" << endl;
+			system("cls");
 		}
 	}
 	else

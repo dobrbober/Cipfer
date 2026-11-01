@@ -70,7 +70,7 @@ int main()
 	string sMessage  = "";
 	string slMessage = sMessage;
 
-	int  iShift  = 0     ;
+	int  iShift  = -1    ;
 	int& ilShift = iShift;
 
 	int iError = 0;
@@ -81,15 +81,20 @@ int main()
 
 	ilShift = InputData(File, FileReadAndWrite);
 
+	if (ilShift == -1)
+	{
+		ilShift = QuestionDataInstall();
+	}
+
 	switch (Question()) //Вопрос шифровка или дешифровка
 	{
 	case(0): 
 		
-		Encrypting (List, slInput, ilShift); 
+		Encrypting (List, slInput, ilShift, slMessage); 
 		break;
 	case(1): 
 		
-		EncryptingR(List, slInput, ilShift);
+		EncryptingR(List, slInput, ilShift, slMessage);
 		break;
 	default:
 		cout << "Неверное возращённое значение от вопроса!";

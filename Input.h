@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include "CreateAndDeleteList.h"
+#include "Question.h"
 
 using namespace std;
 
